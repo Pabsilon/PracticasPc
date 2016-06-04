@@ -21,7 +21,7 @@ public class Problema1 {
 	
 	public void Run(){
 		for (int i = 0; i<_n; i++){
-			_threads[i].start();
+			_threads[i].run();
 		}
 		for (int i = 0; i<_n; i++){
 			try {
