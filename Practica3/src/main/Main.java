@@ -7,6 +7,10 @@ public class Main {
 		Problema1 test = new Problema1(100);
 		
 		test.run();
+		
+		Problema2 cosa = new Problema2();
+		cosa.run();
+		
 	}
 
 }
