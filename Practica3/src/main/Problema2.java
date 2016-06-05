@@ -13,29 +13,19 @@ public class Problema2 {
 	public Problema2(){
 		_val = 0;
 		_alm = new Almacen();
-		_productores = new Thread[10];
+		_productores = new Thread[11];
 		_sem = new Semaphore(1);
 		for (int i =0; i<10; i++){
 			_productores[i] = new Productor(_sem);
 		}
+		_productores[10] = new Consumidor(_sem);
 	}
 	
 	public void run(){
-		for (int i = 0; i<10; i++){
+		for (int i = 0; i<11; i++){
 			_productores[i].start();
 		}
-		for (int i = 0; i<10; i++){
-			try {
-				_sem.acquire();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			_alm.extraer();
-			_val = _val + 1;
-			_sem.release();
-		}
-		for (int i = 0; i<10; i++){
+		for (int i = 0; i<11; i++){
 			try {
 				_productores[i].join();
 			} catch (InterruptedException e) {
