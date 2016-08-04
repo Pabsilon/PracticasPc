@@ -4,3 +4,5 @@ Practica1/bin
 Practica1/.classpath
 Practica1/.project
 .recommenders
+*.project
+*.classpath
