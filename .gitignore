@@ -6,3 +6,4 @@ Practica1/.project
 .recommenders
 *.project
 *.classpath
+/bin/
