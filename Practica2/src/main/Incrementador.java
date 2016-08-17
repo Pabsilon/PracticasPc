@@ -14,6 +14,7 @@ public class Incrementador extends Thread{
 			while (!Problema1._lock){
 				
 			}
+			Problema1._lock = !Problema1._lock;
 			Problema1._var = Problema1._var+i;
 			Problema1._lock = !Problema1._lock;
 		}

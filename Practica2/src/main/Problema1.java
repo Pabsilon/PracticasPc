@@ -3,13 +3,13 @@ package main;
 public class Problema1 {
 	
 	static boolean _lock;
-	static int _var;
+	volatile static int _var;
 	Thread[] _threads;
 	int _n;
 	
 	public Problema1(int n){
 		_n = n;
-		_lock = false;
+		_lock = true;
 		_threads = new Thread[n];
 		for (int i = 0; i<n/2; i++){
 			_threads[i] = new Incrementador(10);
@@ -22,10 +22,12 @@ public class Problema1 {
 	public void Run(){
 		for (int i = 0; i<_n; i++){
 			_threads[i].start();
+			System.out.println("Thread " + i + " initiated!");
 		}
-		for (int i = 0; i<_n; i++){
+		for (Thread thread : _threads){
 			try {
-				_threads[i].join();
+				thread.join();
+				System.out.println("Thread joint!");
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
