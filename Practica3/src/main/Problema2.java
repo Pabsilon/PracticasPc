@@ -13,19 +13,19 @@ public class Problema2 {
 	public Problema2(){
 		_val = 0;
 		_alm = new Almacen();
-		_productores = new Thread[11];
+		_productores = new Thread[21];
 		_sem = new Semaphore(1);
-		for (int i =0; i<10; i++){
+		for (int i =0; i<20; i++){
 			_productores[i] = new Productor(_sem);
 		}
-		_productores[10] = new Consumidor(_sem);
+		_productores[20] = new Consumidor(_sem);
 	}
 	
 	public void run(){
-		for (int i = 0; i<11; i++){
+		for (int i = 20; i>-1; i--){
 			_productores[i].start();
 		}
-		for (int i = 0; i<11; i++){
+		for (int i = 0; i<21; i++){
 			try {
 				_productores[i].join();
 			} catch (InterruptedException e) {

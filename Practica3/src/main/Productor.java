@@ -5,15 +5,13 @@ import java.util.concurrent.Semaphore;
 public class Productor extends Thread{
 	
 	Semaphore _sem;
-	boolean _produced;
 
 	public Productor(Semaphore sem){
 		_sem = sem;
-		_produced = false;
 	}
 	
 	public void run(){
-		while (!_produced){
+		while (Problema2._val<40){
 			try {
 				_sem.acquire();
 			} catch (InterruptedException e) {
@@ -22,10 +20,11 @@ public class Productor extends Thread{
 			}
 			if (!Problema2._alm.status()){
 				Problema2._alm.almacenar();
-				_produced = true;
+				System.out.println("He almacenado!");
 				_sem.release();
 			}else{
 				_sem.release();
+				
 			}
 			
 		}

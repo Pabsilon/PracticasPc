@@ -11,14 +11,14 @@ public class Consumidor extends Thread{
 	}
 	
 	public void run(){
-		while (Problema2._val<10){
+		while (Problema2._val<40){
 			try {
 				_sem.acquire();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if (Problema2._alm.status()){
+			if (Problema2._alm.notEmpty()){
 				Problema2._alm.extraer();
 				Problema2._val = Problema2._val + 1;
 				_sem.release();
