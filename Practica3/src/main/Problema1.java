@@ -6,7 +6,7 @@ public class Problema1 {
 
 	Thread[] _threads;
 	int _n;
-	static int _var;
+	volatile static int _var;
 	Semaphore _sem;
 	
 	public Problema1(int n){
