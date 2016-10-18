@@ -3,7 +3,7 @@ package main;
 public class Almacen {
 
 	int _stored;
-	final int _maxStored = 5;
+	final int _maxStored = 3;
 	
 	public Almacen(){
 		_stored = 0;
