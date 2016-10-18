@@ -9,6 +9,7 @@ public class AlmacenMultiV1 {
 	
 	public AlmacenMultiV1(int max){
 		_almacenados = new ArrayList<Boolean>();
+		int i = 0;
 		_max = max;
 	}
 	
